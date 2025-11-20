@@ -1,0 +1,604 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jeep — Comparativo Completo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-dark:#051722;
+  --panel:#f8fbff;
+  --muted:#9fb6bd;
+  --accent:#063744;
+  --cyan:#00c2ff;
+  --card-bg:#ffffff;
+  --radius:12px;
+  --pad:18px;
+  --shadow:0 12px 30px rgba(0,0,0,0.18);
+  --content-max:1100px;
+  --glass: rgba(255,255,255,0.03);
+}
+
+/* Reset */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg,var(--bg-dark),#022f37);
+  color:var(--panel);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.55;
+  scroll-behavior:smooth;
+}
+
+/* Container */
+.container{max-width:var(--content-max);margin:20px auto;padding:12px}
+
+/* Top nav */
+.topbar{position:fixed;left:0;right:0;top:12px;z-index:1200;display:flex;justify-content:center;padding:8px}
+.navwrap{width:100%;max-width:var(--content-max);background:linear-gradient(180deg, rgba(2,15,20,0.30), rgba(2,15,20,0.18));backdrop-filter: blur(6px);border-radius:12px;padding:10px 14px;border:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 10px 30px rgba(0,0,0,0.45)}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#04343f,#074a59);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--panel);font-size:18px}
+.title{display:flex;flex-direction:column}
+.title h1{margin:0;font-size:16px}
+.title p{margin:0;color:var(--muted);font-size:12px}
+
+/* Menu */
+.menu{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.menu a{color:var(--panel);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600;font-size:13px;border:1px solid rgba(255,255,255,0.03)}
+.menu a.active, .menu a:hover{background:linear-gradient(90deg, rgba(0,194,255,0.08), rgba(0,140,200,0.04));color:var(--cyan);box-shadow:0 8px 20px rgba(0,140,200,0.06)}
+
+/* Spacer */
+.spacer{height:96px}
+
+/* Sections */
+.section{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:12px; margin-bottom:18px; border:1px solid var(--glass); box-shadow:var(--shadow)}
+.section h2{margin:0 0 6px 0; font-size:20px; color:var(--panel)}
+.subtitle{color:var(--muted);margin-bottom:12px;font-size:13px}
+
+/* layout for model sections */
+.section-inner{display:grid;grid-template-columns:420px 1fr;gap:18px;align-items:start}
+.imgbox{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+.imgbox img{width:100%;height:300px;object-fit:cover;display:block;background:#e6eef6}
+
+/* card inside */
+.section-card{background:var(--card-bg);color:#062230;border-radius:10px;padding:14px;box-shadow:0 10px 22px rgba(0,0,0,0.10)}
+.note{color:var(--muted);font-size:13px}
+
+/* specs grid */
+.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.specs-grid dt{font-weight:700;color:#093848}
+.specs-grid dd{margin:0;color:#17505f}
+
+/* pros/cons */
+.proscons{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.card-pros, .card-cons{background:linear-gradient(180deg,#f7fcff,#f0fbff);color:#07394a;padding:10px;border-radius:10px;border:1px solid #e6f7ff}
+.card-pros strong, .card-cons strong {display:block;margin-bottom:6px;color:#0a4b56}
+
+/* value/use cards */
+.value-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.value-card{background:var(--card-bg);color:#062230;padding:10px 12px;border-radius:10px;border:1px solid #e6f6ff;display:flex;flex-direction:column;gap:6px;min-width:180px;align-items:flex-start}
+.value-card .label{font-weight:700;color:#063744}
+.value-card .value{font-size:16px;font-weight:800;color:#0b4652}
+
+/* comparative table */
+.comparative .tablewrap{overflow:auto;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,#021b21,#053033);padding:12px}
+.comparative table{width:100%;border-collapse:collapse;color:var(--panel)}
+.comparative th,.comparative td{padding:10px;border-bottom:1px solid rgba(255,255,255,0.03);text-align:center}
+.comparative th{text-align:left;font-weight:700}
+
+/* contact form */
+.contact-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.input, textarea {width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);font-size:14px}
+textarea{min-height:110px;resize:vertical}
+
+/* back to top */
+.to-top{position:fixed;right:18px;bottom:18px;background:linear-gradient(180deg,#00c2ff,#00a0e0);color:#02313a;padding:10px;border-radius:12px;border:none;box-shadow:0 12px 30px rgba(0,140,200,0.18);cursor:pointer;display:none;z-index:1300}
+
+/* responsive */
+@media (max-width:1000px){
+  .section-inner{grid-template-columns:1fr}
+  .imgbox img{height:320px}
+  .menu a{padding:6px 8px;font-size:12px}
+}
+@media (max-width:480px){
+  .logo{width:48px;height:48px;font-size:16px}
+  .title h1{font-size:14px}
+  .title p{font-size:11px}
+  .imgbox img{height:220px}
+}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(18px);transition:all .6s cubic-bezier(.2,.9,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<div class="topbar">
+  <div class="navwrap container" role="navigation" aria-label="Menu principal">
+    <div class="brand">
+      <div class="logo">JvS</div>
+      <div class="title">
+        <h1>Jeep — Comparativo</h1>
+        <p>Seis modelos • histórico, fichas e comparativo</p>
+      </div>
+    </div>
+
+    <nav class="menu" id="menu" aria-label="Navegação principal">
+      <a href="#home" class="navlink">Início</a>
+      <a href="#renegade" class="navlink">Renegade</a>
+      <a href="#compass" class="navlink">Compass</a>
+      <a href="#wrangler" class="navlink">Wrangler</a>
+      <a href="#commander" class="navlink">Commander</a>
+      <a href="#avenger" class="navlink">Avenger</a>
+      <a href="#gladiator" class="navlink">Gladiator</a>
+      <a href="#comparativo" class="navlink">Comparativo</a>
+      <a href="#contato" class="navlink">Contato</a>
+    </nav>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <section id="home" class="section reveal">
+    <h2>Introdução — A história da Jeep e o surgimento dos SUVs</h2>
+    <div class="subtitle">De utilitário militar a ícone global — por que a Jeep é única dentro da família SUV</div>
+
+    <div class="section-card">
+      <p class="note"><strong>Origem e quem criou:</strong> a origem da Jeep está ligada à Segunda Guerra Mundial. Em 1940 o Exército dos EUA encomendou um veículo leve, simples e extremamente confiável. Empresas como Bantam, Willys-Overland e Ford participaram do desenvolvimento e testes; o projeto padrão ficou associado ao modelo <em>Willys MB</em>, com motor "Go-Devil" e arquitetura simples para facilitar manutenção. O veículo criou um novo padrão para mobilidade em terrenos difíceis — foi projetado para “ir aonde mais nada ia”.</p>
+
+      <p class="note"><strong>Transição para civil:</strong> após a guerra, a robustez e a versatilidade dos veículos militares atraíram o público civil. Jeeps passaram a ser usados no campo, em obras e no lazer — e a marca virou sinônimo de carros capazes fora de estrada.</p>
+
+      <p class="note"><strong>Surgimento dos SUVs:</strong> nas décadas seguintes, montadoras começaram a oferecer veículos que traziam a postura elevada e a praticidade dos utilitários com mais conforto. Surgiu então a categoria SUV (Sport Utility Vehicle): veículos com maior altura do solo, posição de dirigir elevada e foco em versatilidade. Ao longo do tempo os SUVs se diversificaram — alguns mantiveram o caráter utilitário/off-road, outros priorizaram conforto, eficiência e tecnologia urbana.</p>
+
+      <p class="note"><strong>Jeep x SUV:</strong> a diferença prática é que "SUV" é uma categoria ampla; já "Jeep" é uma marca com herança off-road e soluções técnicas (caixas de transferência, eixos, proteções) que justificam desempenho real fora de estrada. Hoje a Jeep fabrica desde compactos urbanos até picapes utilitárias e modelos elétricos, mantendo o DNA em diferentes formas.</p>
+
+      <p class="note">Neste site você encontrará: contexto histórico, fichas técnicas, peças importantes e um comparativo para saber qual modelo vale mais a pena dependendo do uso (cidade, estrada, trilha ou trabalho).</p>
+    </div>
+  </section>
+
+  <!-- RENEGDE -->
+  <section id="renegade" class="section reveal">
+    <h2>Jeep Renegade</h2>
+    <div class="subtitle">SUV compacto — versatilidade urbana com DNA Jeep</div>
+    <div class="section-inner">
+      <div class="imgbox reveal">
+        <img src="images/renegade.jpg" alt="Jeep Renegade">
+      </div>
+
+      <div class="content reveal">
+        <div class="section-card">
+          <h3>História resumida</h3>
+          <p class="note">Lançado em 2014, o Renegade trouxe a identidade Jeep para o segmento compacto. Projetado para clientes que querem o estilo e parte da aptidão off-road em um carro fácil de usar na cidade.</p>
+
+          <h3>Ficha técnica (estimativa)</h3>
+          <dl class="specs-grid">
+            <dt>Motor</dt><dd>1.3 Turbo 4 cilindros (estimado)</dd>
+            <dt>Potência</dt><dd>~150–180 cv</dd>
+            <dt>Transmissão</dt><dd>Automática CVT / 6-9 marchas (varia por versão)</dd>
+            <dt>Tração</dt><dd>2WD / 4x4 (em versões)</dd>
+            <dt>Consumo médio</dt><dd>~10–13 km/l (cidade/estrada, conforme versão)</dd>
+            <dt>Porta-malas</dt><dd>~350 L (estimado)</dd>
+          </dl>
+
+          <h3>Peças e sistemas importantes</h3>
+          <ul>
+            <li><strong>Turbo:</strong> aumenta potência sem grande cilindrada — manutenção de óleo e filtros é crucial.</li>
+            <li><strong>Transmissão automática:</strong> otimiza conforto — trocas de fluido conforme manual aumentam durabilidade.</li>
+            <li><strong>Sistema 4x4 (opcional):</strong> útil em trechos irregulares; exige cuidado com diferenciais e lubrificação.</li>
+            <li><strong>Suspensão:</strong> voltada ao conforto urbano com folga para trilhas leves — revisar buchas/amortecedores periodicamente.</li>
+          </ul>
+
+          <div class="proscons">
+            <div class="card-pros"><strong>Benefícios</strong>
+              <ul><li>Perfeito para cidade e uso misto</li><li>Design Jeep reconhecível</li><li>Custo de aquisição mais acessível entre jeeps</li></ul>
+            </div>
+            <div class="card-cons"><strong>Pontos negativos</strong>
+              <ul><li>Espaço traseiro e porta-malas limitados</li><li>Não é ideal para off-road severo</li></ul>
+            </div>
+          </div>
+
+          <div class="value-row">
+            <div class="value-card"><div class="label">💰 Valor médio</div><div class="value">~R$ 110.000 – R$ 140.000</div></div>
+            <div class="value-card"><div class="label">📍 Melhor uso</div><div class="value">Cidade • Finais de semana leves</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPASS -->
+  <section id="compass" class="section reveal">
+    <h2>Jeep Compass</h2>
+    <div class="subtitle">SUV médio — conforto, tecnologia e bom espaço interno</div>
+
+    <div class="section-inner">
+      <div class="imgbox reveal">
+        <img src="images/Compass.jpg" alt="Jeep Compass">
+      </div>
+
+      <div class="content reveal">
+        <div class="section-card">
+          <h3>História resumida</h3>
+          <p class="note">O Compass consolidou a presença da Jeep no segmento médio: bom acabamento, tecnologias de assistência e opções mais refinadas. É escolha comum para famílias que querem conforto e estilo.</p>
+
+          <h3>Ficha técnica (estimativa)</h3>
+          <dl class="specs-grid">
+            <dt>Motor</dt><dd>1.3L Turbo / 2.0 Diesel (varia por mercado)</dd>
+            <dt>Potência</dt><dd>~160–200 cv</dd>
+            <dt>Transmissão</dt><dd>Automática 6–9 marchas</dd>
+            <dt>Tração</dt><dd>FWD / AWD</dd>
+            <dt>Consumo médio</dt><dd>~9–13 km/l (conforme motor)</dd>
+            <dt>Espaço interno</dt><dd>Bom para 5 adultos</dd>
+          </dl>
+
+          <h3>Peças e sistemas importantes</h3>
+          <ul>
+            <li><strong>AWD / Tração integral:</strong> ajuda em piso molhado e estradas ruins — manutenção preventiva é importante.</li>
+            <li><strong>Suspensão multi-link:</strong> conforto e estabilidade em estrada — alinhamentos frequentes preservam pneus.</li>
+            <li><strong>Sistemas ADAS:</strong> câmera e sensores de segurança — exigem limpeza e calibração quando necessário.</li>
+            <li><strong>Sistema de injeção:</strong> filtro e bicos bem mantidos melhoram economia e emissões.</li>
+          </ul>
+
+          <div class="proscons">
+            <div class="card-pros"><strong>Benefícios</strong>
+              <ul><li>Espaço e conforto para família</li><li>Boa estabilidade em estrada</li><li>Bom pacote tecnológico</li></ul>
+            </div>
+            <div class="card-cons"><strong>Pontos negativos</strong>
+              <ul><li>Preço mais elevado que compactos</li><li>Consumo maior em versões potentes</li></ul>
+            </div>
+          </div>
+
+          <div class="value-row">
+            <div class="value-card"><div class="label">💰 Valor médio</div><div class="value">~R$ 140.000 – R$ 180.000</div></div>
+            <div class="value-card"><div class="label">📍 Melhor uso</div><div class="value">Estrada • Família</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRANGLER -->
+  <section id="wrangler" class="section reveal">
+    <h2>Jeep Wrangler</h2>
+    <div class="subtitle">Ícone off-road — projetado para trilhas e condições extremas</div>
+
+    <div class="section-inner">
+      <div class="imgbox reveal">
+        <img src="images/Wrangler.jpg" alt="Jeep Wrangler">
+      </div>
+
+      <div class="content reveal">
+        <div class="section-card">
+          <h3>História resumida</h3>
+          <p class="note">Diretamente ligado ao Jeep militar, o Wrangler preserva arquitetura robusta, fácil manutenção e componentes específicos para trilha. É o veículo para quem prioriza capacidade off-road.</p>
+
+          <h3>Ficha técnica (estimativa)</h3>
+          <dl class="specs-grid">
+            <dt>Motor</dt><dd>2.0 Turbo / V6 (conforme versão)</dd>
+            <dt>Potência</dt><dd>~200–285 cv</dd>
+            <dt>Transmissão</dt><dd>Manual / Automática 6–8 marchas</dd>
+            <dt>Tração</dt><dd>4x4 com reduzida, eixos sólidos</dd>
+            <dt>Consumo médio</dt><dd>~6–10 km/l (varia muito com uso)</dd>
+          </dl>
+
+          <h3>Peças e sistemas importantes</h3>
+          <ul>
+            <li><strong>Eixos sólidos:</strong> resistem a esforços extremos — manutenção do diferencial é crítica.</li>
+            <li><strong>Caixa de transferência:</strong> reduzida para entornos pesados — verificação e óleo apropriado são essenciais.</li>
+            <li><strong>Skid plates:</strong> protegem motor, câmbio e tanque de impactos inferiores.</li>
+            <li><strong>Suspensão de curso longo:</strong> absorve grandes impactos; buchas e amortecedores devem ser checados regularmente.</li>
+          </ul>
+
+          <div class="proscons">
+            <div class="card-pros"><strong>Benefícios</strong>
+              <ul><li>Capacidade off-road superior</li><li>Durabilidade em terrenos severos</li></ul>
+            </div>
+            <div class="card-cons"><strong>Pontos negativos</strong>
+              <ul><li>Consumo elevado</li><li>Conforto urbano inferior em versões mais rústicas</li></ul>
+            </div>
+          </div>
+
+          <div class="value-row">
+            <div class="value-card"><div class="label">💰 Valor médio</div><div class="value">~R$ 300.000 – R$ 480.000</div></div>
+            <div class="value-card"><div class="label">📍 Melhor uso</div><div class="value">Trilha • Off-road extremo</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMANDER -->
+  <section id="commander" class="section reveal">
+    <h2>Jeep Commander</h2>
+    <div class="subtitle">SUV grande — 7 lugares e foco familiar</div>
+
+    <div class="section-inner">
+      <div class="imgbox reveal">
+        <img src="images/Commander.jpg" alt="Jeep Commander">
+      </div>
+
+      <div class="content reveal">
+        <div class="section-card">
+          <h3>História resumida</h3>
+          <p class="note">Projetado para famílias grandes e mercados que pedem 7 lugares, o Commander oferece espaço, conforto e tecnologias de segurança para longas viagens.</p>
+
+          <h3>Ficha técnica (estimativa)</h3>
+          <dl class="specs-grid">
+            <dt>Motor</dt><dd>1.3–2.0 Turbo / Diesel (dependendo do mercado)</dd>
+            <dt>Potência</dt><dd>~150–220 cv</dd>
+            <dt>Transmissão</dt><dd>Automática 8 marchas</dd>
+            <dt>Tração</dt><dd>FWD / AWD</dd>
+            <dt>Capacidade</dt><dd>7 passageiros</dd>
+          </dl>
+
+          <h3>Peças e sistemas importantes</h3>
+          <ul>
+            <li><strong>Chassi reforçado:</strong> suporta carga e passageiros extras — inspeção periódica de suspensão é desejável.</li>
+            <li><strong>Climatização multizona:</strong> garante conforto a todos os ocupantes — manutenção evita falhas em longas viagens.</li>
+            <li><strong>Sistemas de assistência:</strong> controle eletrônico de estabilidade, sensores, câmeras — precisam de calibração após serviços maiores.</li>
+          </ul>
+
+          <div class="proscons">
+            <div class="card-pros"><strong>Benefícios</strong>
+              <ul><li>Espaço para família e bagagens</li><li>Conforto em viagens longas</li></ul>
+            </div>
+            <div class="card-cons"><strong>Pontos negativos</strong>
+              <ul><li>Maior consumo</li><li>Custo de manutenção superior</li></ul>
+            </div>
+          </div>
+
+          <div class="value-row">
+            <div class="value-card"><div class="label">💰 Valor médio</div><div class="value">~R$ 200.000 – R$ 300.000</div></div>
+            <div class="value-card"><div class="label">📍 Melhor uso</div><div class="value">Família • Viagens longas</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVENGER -->
+  <section id="avenger" class="section reveal">
+    <h2>Jeep Avenger</h2>
+    <div class="subtitle">SUV elétrico — eficiência e emissão local zero</div>
+
+    <div class="section-inner">
+      <div class="imgbox reveal">
+        <img src="images/Avenger.jpg" alt="Jeep Avenger">
+      </div>
+
+      <div class="content reveal">
+        <div class="section-card">
+          <h3>História resumida</h3>
+          <p class="note">O Avenger marca a entrada da Jeep no segmento elétrico compacto: pensado para cidade, com foco em zero emissões locais e baixo custo operacional.</p>
+
+          <h3>Ficha técnica (estimativa)</h3>
+          <dl class="specs-grid">
+            <dt>Propulsão</dt><dd>100% elétrica (motor(s) elétrico(s))</dd>
+            <dt>Autonomia</dt><dd>~300 km (estimativa dependendo da bateria)</dd>
+            <dt>Potência</dt><dd>~110–150 kW (varia por versão)</dd>
+            <dt>Recarga</dt><dd>AC doméstico / DC rápido (depende da infraestrutura)</dd>
+          </dl
+          
+          <ul>
+            <li><strong>Bateria + BMS:</strong> gerencia carga/temperatura — manutenção preventiva da bateria e gestão térmica são fundamentais.</li>
+            <li><strong>Inversores e motores:</strong> menos manutenção mecânica do que motores a combustão, mas componentes elétricos demandam atenção especializada.</li>
+            <li><strong>Sistemas de recarga:</strong> infraestrutura e carregadores rápidos influenciam o uso em viagens.</li>
+          </ul>
+
+          <div class="proscons">
+            <div class="card-pros"><strong>Benefícios</strong>
+              <ul><li>Emissões locais zero</li><li>Menor custo por km</li><li>Silencioso e ágil na cidade</li></ul>
+            </div>
+            <div class="card-cons"><strong>Pontos negativos</strong>
+              <ul><li>Dependência de infraestrutura</li><li>Preço inicial mais alto que versões a combustão</li></ul>
+            </div>
+          </div>
+
+          <div class="value-row">
+            <div class="value-card"><div class="label">💰 Valor médio</div><div class="value">~R$ 180.000 – R$ 260.000</div></div>
+            <div class="value-card"><div class="label">📍 Melhor uso</div><div class="value">Cidade • Rotas com recarga</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLADIATOR -->
+  <section id="gladiator" class="section reveal">
+    <h2>Jeep Gladiator</h2>
+    <div class="subtitle">Picape utilitária com alma off-road</div>
+
+    <div class="section-inner">
+      <div class="imgbox reveal">
+        <img src="images/Gladiator.jpg" alt="Jeep Gladiator">
+      </div>
+
+      <div class="content reveal">
+        <div class="section-card">
+          <h3>História resumida</h3>
+          <p class="note">A Gladiator é a picape derivada do Wrangler, oferecendo caçamba e capacidade de carga sem perder características off-road que definem a linha Jeep.</p>
+
+          <h3>Ficha técnica (estimativa)</h3>
+          <dl class="specs-grid">
+            <dt>Motor</dt><dd>V6 / 3.0 Diesel (varia por versão)</dd>
+            <dt>Potência</dt><dd>~250–285 cv</dd>
+            <dt>Transmissão</dt><dd>Automática 8 marchas</dd>
+            <dt>Tração</dt><dd>4x4 com reduzida</dd>
+            <dt>Capacidade caçamba</dt><dd>~600–1000 kg (dependendo da versão)</dd>
+          </dl>
+
+          <h3>Peças e sistemas importantes</h3>
+          <ul>
+            <li><strong>Chassi reforçado:</strong> suporta cargas e esforços extra — inspeção de suspensão e buchas é essencial.</li>
+            <li><strong>Diferenciais reforçados:</strong> lidam com torque maior — manutenção preventiva aumenta vida útil.</li>
+            <li><strong>Caçamba com proteções:</strong> ideal para trabalho e transporte, acessórios ampliam funcionalidade.</li>
+          </ul>
+
+          <div class="proscons">
+            <div class="card-pros"><strong>Benefícios</strong>
+              <ul><li>Versatilidade carga + trilha</li><li>Robustez e capacidade de reboque</li></ul>
+            </div>
+            <div class="card-cons"><strong>Pontos negativos</strong>
+              <ul><li>Maior consumo</li><li>Tamanho e custos mais elevados</li></ul>
+            </div>
+          </div>
+
+          <div class="value-row">
+            <div class="value-card"><div class="label">💰 Valor médio</div><div class="value">~R$ 280.000 – R$ 480.000</div></div>
+            <div class="value-card"><div class="label">📍 Melhor uso</div><div class="value">Trabalho • Trilha • Reboque</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATIVO -->
+  <section id="comparativo" class="section reveal comparative">
+    <h2>Comparativo — qual Jeep escolher?</h2>
+    <div class="subtitle">Resumo objetivo por cenário</div>
+
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      <div class="tablewrap" style="flex:1;min-width:320px">
+        <table>
+          <thead>
+            <tr><th>Aspecto</th><th>Renegade</th><th>Compass</th><th>Wrangler</th><th>Commander</th><th>Avenger</th><th>Gladiator</th></tr>
+          </thead>
+          <tbody>
+            <tr><td style="text-align:left">Cidade</td><td>4</td><td>4</td><td>2</td><td>3</td><td><strong>5</strong></td><td>2</td></tr>
+            <tr><td style="text-align:left">Estrada</td><td>3</td><td><strong>4</strong></td><td>3</td><td>4</td><td>4</td><td>3</td></tr>
+            <tr><td style="text-align:left">Trilha</td><td>3</td><td>3</td><td><strong>5</strong></td><td>3</td><td>2</td><td>4</td></tr>
+            <tr><td style="text-align:left">Economia</td><td>4</td><td>3</td><td>2</td><td>3</td><td><strong>5</strong></td><td>2</td></tr>
+            <tr><td style="text-align:left">Impacto ambiental</td><td>3</td><td>3</td><td>2</td><td>3</td><td><strong>5</strong></td><td>2</td></tr>
+            <tr><td style="text-align:left">Espaço</td><td>3</td><td>4</td><td>3</td><td><strong>5</strong></td><td>3</td><td>4</td></tr>
+            <tr><td style="text-align:left">Preço (relativo)</td><td>3</td><td>3</td><td>5</td><td>4</td><td>4</td><td>5</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="flex:0 0 320px">
+        <div class="section-card" style="background:linear-gradient(90deg,#032b34,#05313a);color:var(--panel)">
+          <h3 style="margin:0 0 8px 0">Recomendações rápidas</h3>
+          <ul style="margin:0 0 8px 18px;color:var(--panel)">
+            <li><strong>Cidade:</strong> Avenger (elétrico) ou Renegade</li>
+            <li><strong>Estrada:</strong> Compass ou Commander</li>
+            <li><strong>Trilha:</strong> Wrangler (ou Gladiator para carga)</li>
+            <li><strong>Família grande:</strong> Commander</li>
+          </ul>
+          <div style="color:var(--muted);font-size:13px">Dica: avalie seu km/mês, orçamento total (compra+manutenção+combustível) e, para elétricos, disponibilidade de recarga onde você roda.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="section reveal">
+    <h2>Contato</h2>
+    <div class="subtitle">Fale conosco (formulário de contato)</div>
+
+    <div class="section-card">
+      <p class="note">Use o formulário abaixo para solicitar mais informações, fotos específicas, ou uma versão personalizada do comparativo.</p>
+
+      <!-- Simple mailto form (works without server) -->
+      <form id="contactForm" action="mailto:Miguelpfelipe@gmail.com" method="post" enctype="text/plain" onsubmit="alert('Iremos enviar por email a Mensagem.');">
+        <label style="display:block;margin-bottom:6px;color:#063744;font-weight:700">Nome</label>
+        <input class="input" type="text" name="Nome" required placeholder="Seu nome">
+        <label style="display:block;margin:12px 0 6px 0;color:#063744;font-weight:700">Email</label>
+        <input class="input" type="email" name="Email" required placeholder="seu@exemplo.com">
+        <label style="display:block;margin:12px 0 6px 0;color:#063744;font-weight:700">Assunto</label>
+        <input class="input" type="text" name="Assunto" placeholder="Ex: Dúvida sobre Compass">
+        <label style="display:block;margin:12px 0 6px 0;color:#063744;font-weight:700">Mensagem</label>
+        <textarea name="Mensagem" placeholder="Escreva sua mensagem..." required></textarea>
+
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+          <button type="submit" style="background:linear-gradient(90deg,#00c2ff,#057ea6);border:none;padding:10px 14px;border-radius:10px;color:#012a33;font-weight:800;cursor:pointer">Enviar por email</button>
+          <button type="button" onclick="copyPageLink()" style="background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:10px;color:var(--panel);cursor:pointer">Copiar link da página</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer style="margin-top:12px;text-align:center;color:var(--muted);font-size:13px">
+    Conteúdo estimado e adaptado ao relatório fornecido. Verifique valores e especificações com concessionárias locais. Desenvolvido por Pedro Miguel Felipe.
+  </footer>
+
+</div>
+
+<button class="to-top" id="toTop" title="Voltar ao topo">↑ Topo</button>
+
+<script>
+/* menu active on scroll */
+const navlinks = document.querySelectorAll('.navlink');
+const sections = Array.from(document.querySelectorAll('section'));
+function setActiveLink(){
+  const offset = 120; const y = window.scrollY + offset;
+  let cur = sections[0];
+  for(const s of sections){
+    if(s.offsetTop <= y) cur = s;
+  }
+  document.querySelectorAll('.menu a').forEach(a => a.classList.remove('active'));
+  const id = cur.id;
+  const link = document.querySelector('.menu a[href="#' + id + '"]');
+  if(link) link.classList.add('active');
+}
+window.addEventListener('scroll', setActiveLink);
+setActiveLink();
+
+/* reveal animations */
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+},{threshold:0.12});
+reveals.forEach(r=>io.observe(r));
+
+/* back to top button */
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', ()=> {
+  if(window.scrollY > 500) toTop.style.display = 'block'; else toTop.style.display = 'none';
+});
+toTop.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+/* copy page link (useful for mobile) */
+function copyPageLink(){
+  const url = location.href;
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(()=> alert('Link copiado! Você pode enviar para alguém.'), ()=> alert('Não foi possível copiar.'));
+  } else {
+    prompt('Copie o link abaixo:', url);
+  }
+}
+
+/* menu link smooth offset */
+document.querySelectorAll('.menu a').forEach(a=>{
+  a.addEventListener('click', (ev)=>{
+    ev.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if(!target) return;
+    const topbarHeight = document.querySelector('.navwrap').offsetHeight + 12;
+    const y = target.getBoundingClientRect().top + window.scrollY - topbarHeight;
+    window.scrollTo({top:y,behavior:'smooth'});
+    document.querySelectorAll('.menu a').forEach(x=>x.classList.remove('active'));
+    a.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
